@@ -50,6 +50,9 @@ function getMaxScore(callback){
 
 app.get('/clients', function(req, res){
   let numClients = req.query.numClients;
+  if (typeof numClients === 'undefined'){
+    return res.status(400).send({error: 'Bad request. Example : ?numClients=10'});
+  }
   res.send(generateClients(numClients));
 });
 
@@ -64,7 +67,9 @@ app.get('/food', function(req, res){
 
 app.get('/score', function(req, res){
   let score = req.query.score;
-  console.log(score);
+  if (typeof score === 'undefined'){
+    return res.status(400).send({error: 'Bad request. Example : ?score=50.'});
+  }
   getMaxScore(function(err, maxScore){
     let dataToSend = (score > maxScore) ? {newRecord: true, maxScore: score} : {newRecord: false, maxScore: maxScore};
     res.send(dataToSend);
