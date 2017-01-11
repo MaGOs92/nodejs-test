@@ -8,9 +8,9 @@ let port = 8080;
 
 let curClientId = 0;
 
-let tabBoisson = [{id: 1, label: 'Eau gazeuse'}, {id: 2, label: 'Bière'}, {id: 3, label: 'Coca'}];
-let tabPlat = [{id: 4, label: 'Cheese burger'}, {id: 5, label: 'Pizza'}, {id: 6, label: 'Sushi'}];
-let tabDessert = [{id: 7, label: 'Panacotta'}, {id: 8, label: 'Banane'}, {id: 9, label: 'Yaourt'}];
+let tabBoisson = [{id: 1, label: 'Eau gazeuse', type: 'boisson'}, {id: 2, label: 'Bière', type: 'boisson'}, {id: 3, label: 'Coca', type: 'boisson'}];
+let tabPlat = [{id: 4, label: 'Cheese burger', type: 'plat'}, {id: 5, label: 'Pizza', type: 'plat'}, {id: 6, label: 'Sushi', type: 'plat'}];
+let tabDessert = [{id: 7, label: 'Panacotta', type: 'dessert'}, {id: 8, label: 'Banane', type: 'dessert'}, {id: 9, label: 'Yaourt', type: 'dessert'}];
 
 
 function getClientId(){
@@ -20,9 +20,9 @@ function getClientId(){
 
 function generateCommande(){
   let commande = [];
-  commande.push(tabBoisson[Math.floor(Math.random()*100) % tabBoisson.length].id);
-  commande.push(tabPlat[Math.floor(Math.random()*100) % tabPlat.length].id);
-  commande.push(tabDessert[Math.floor(Math.random()*100) % tabDessert.length].id);
+  commande.push(tabBoisson[Math.floor(Math.random()*100) % tabBoisson.length]);
+  commande.push(tabPlat[Math.floor(Math.random()*100) % tabPlat.length]);
+  commande.push(tabDessert[Math.floor(Math.random()*100) % tabDessert.length]);
   return commande;
 }
 
