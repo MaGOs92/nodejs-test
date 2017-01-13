@@ -71,6 +71,9 @@ app.get('/score', function(req, res){
     return res.status(400).send({error: 'Bad request. Example : ?score=50.'});
   }
   getMaxScore(function(err, maxScore){
+    if (err){
+      console.log(err);
+    }
     let dataToSend = (score > maxScore) ? {newRecord: true, maxScore: score} : {newRecord: false, maxScore: maxScore};
     res.send(dataToSend);
     if (dataToSend.newRecord){
