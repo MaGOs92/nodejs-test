@@ -27,25 +27,11 @@ function generateCommande(){
 }
 
 function generateClients(numClients){
-  let tabClients = [];
-  for (let i=0; i<numClients; i++){
-    let curClient = {
-      id: getClientId(),
-      commande: generateCommande()
-    };
-    tabClients.push(curClient);
-  }
-  return tabClients;
+  // A faire
 }
 
 function getMaxScore(callback){
-  fs.readFile(path.join(__dirname, scoreFile), function(err, content){
-    if (err){
-      return callback(err, 0);
-    }
-    let parsedData = JSON.parse(content);
-    return callback(err, parsedData && parsedData.maxScore || 0);
-  });
+  // A faire
 }
 
 app.get('/clients', function(req, res){
